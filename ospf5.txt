@@ -1,0 +1,37 @@
+a.
+link di backbone = A-B, B-C, B-E, D-A
+router di backbone = {A,B,C,D,E}
+router di BA = {D,E,A,C}
+router interni backbone = B
+router interni Area2 = F
+router ASBR = {A,B}
+
+b.
+B verso backbone
+B-A, 1, R
+B-E, 1, R
+B-C, 1, R
+B-0/0, 1, AS-EXT
+
+D verso Area2
+D-NET3, 2, R
+NET3-{D,E,F}, 0, N <---- scelgo D come designated router per la rete multi-access Net3
+D-NET1, 4, NS
+D-NET2, 6, NS
+D-A, 3, AS-BR
+D-B, 4, AS-BR
+A-0/0, 2, AS-EXT
+B-0/0, 1, AS-EXT
+
+D verso backbone
+D-A, 3, R
+D-NET2, 2, NS
+D-NET4, 3, NS
+
+c.
+RT(F)
+NET1, 5, E
+NET2, 5, E
+NET3, 2, -
+NET4, 1, -
+0/0, 4, E

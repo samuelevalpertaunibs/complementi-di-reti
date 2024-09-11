@@ -1,0 +1,67 @@
+a. 
+link backbone = B-E, B-F
+router backbone = {B,E,F}
+
+b.
+B-E, 1, R
+B-F, 6, R
+B-0/0, 1, AS-EXT
+
+c. 
+RT(E)
+NET1, 3, A
+NET2, 2, F
+NET3, 3, G
+NET4, 2, G
+0/0, 2, B
+
+RT(F)
+NET1, 4, E
+NET2, 1, C
+NET3, 3, H
+NET4, 3, E
+0/0, 7, B <---- prediligo questo perche' non esco dalla subnet
+
+d.
+E su backbone
+E-B, 1, R
+E-NET1, 3, NS
+E-NET2, 2, NS
+E-NET3, 3, NS
+E-NET4, 2, NS
+
+E su area1
+E-A, 3, R
+E-G, 2, R
+E-F, 1, R
+E-B, 1, AS-BR
+B-0/0, 1, AS-EXT
+
+F su backbone
+F-B, 6, R
+F-NET1, 4, NS
+F-NET2, 1, NS
+F-NET3, 3, NS
+F-NET4, 3, NS
+
+F su area1
+F-C, 1, R
+F-E, 1, R
+F-H, 3, R
+F-B, 6, AS-BR
+B-0/0, 1, AS-EXT
+
+e.
+RT(B)
+NET1, 4, E
+NET2, 3, E
+NET3, 4, E
+NET4, 3, E
+0/0, 1, ISP
+
+RT(H)
+NET1, 6, G
+NET2, 4, F
+NET3, 0, -
+NET4, 1, G
+0/0, 5, G

@@ -1,0 +1,21 @@
+a.
+router AS-BR = {D,C,G}
+router di area interni = {E,F}
+
+b.
+C-D, 3, R (vv)
+C-F, 5, R (vv)
+D-E, 1, R (vv)
+F-E, 1, R (vv)
+F-G, 2, R (vv)
+E-G, 4, R (vv)
+F-22, 0, R
+D-23, 1, AS-EXT
+C-23, 1, AS-EXT
+G-21, 1, AS-EXT
+
+c. 
+RT(E)
+23, 2, D
+22, 1, F
+21, 4, F

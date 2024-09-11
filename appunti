@@ -1,0 +1,47 @@
+---- VPCS ----
+
+ip 10.1.0.10/16 10.1.0.1
+save
+
+---- Router RIP ----
+
+conf t
+int eth X/X
+ip addr 192.168.1.1/24
+no shutdown
+write
+
+conf t
+router rip
+version 2
+no auto-summary
+network 192.168.1.0
+write
+
+--- per riassumare 10.2.0.0 e 10.3.0.0 manualmente ---
+ 10.00000010.0.0
+ 10.00000011.0.0
+255.11111110.0.0 -> 255.254.0.0
+
+conf t
+router rip
+version 2
+no auto-summary
+ip summary-address rip 10.2.0.0 255.254.0.0
+write
+
+---- OSPF ----
+---- p2p
+conf t
+int e0/0
+ip ospf network point-to-point
+
+---- base
+conf t
+router ospf 100 <--- 100 e' instance number
+network 10.0.1.2 0.0.0.0 area 0  <---- area 0 e' backbone, 0.0.0.0 e' !subnet_mask
+
+---- costo fisso
+conf t
+int eth0/0
+ip ospf cost 5

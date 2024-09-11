@@ -1,0 +1,25 @@
+Essendoci una sola area tutti i router sono router della rete
+
+A-B, 4, R
+A-F, 5, R
+B-A, 4, R
+B-C, 2, R
+B-E, 6, R
+C-B, 2, R
+C-D, 3, R
+C-F, 1, R
+D-C, 3, R
+D-E, 7, R
+E-B, 6, R
+E-D, 7, R
+E-F, 8, R
+F-A, 5, R
+F-C, 1, R
+F-E, 8, R
+D-LAND, 0, R
+A-LANA, 0, R
+
+Sono gli stessi che transitano sul canale F-C
+
+Dopo il prio flooding ogni componente della rete conosce l'intera topologia di conseguenza il percorso seguito da un pacchetto IP corrisponde al cammino ottimo calcolato con Dijkstra, ovvero
+LANA-A-B-C-D-LAND

@@ -1,0 +1,47 @@
+a.
+link di backbone = A-D, D-B
+router di backbone = {A,B,D}
+router interni Area1 = C
+router BA = {A,B,D}
+router ASBR = -
+
+b.
+A verso Area1
+A-LAN1, 3, R
+LAN1-{A,B,C}, 0, N  <----- scelgo A come designated router
+A-LAN3, 2, NS
+
+A verso backbone
+A-D, 1, R
+A-LAN1, 3, NS
+A-LAN2, 4, NS
+
+B verso Area1
+B-LAN1, 1, R
+B-LAN3, 6, NS
+
+B verso backbone
+B-D, 5, R
+B-LAN1, 1, NS
+B-LAN2, 2, NS
+
+D verso Area2
+D-LAN1, 4, NS
+D-LAN2, 5, NS
+D-LAN3, 1, R
+
+D verso backbone
+D-A, 1, R
+D-B, 5, R
+D-LAN3, 1, NS
+
+c.
+RT(C)
+LAN1, 1, -
+LAN2, 1, -
+LAN3, 3, A
+
+RT(D)
+LAN1, 4, A
+LAN2, 5, A
+LAN3, 1, -
