@@ -1,0 +1,96 @@
+a.
+link backbone = {G-E, G-H}
+router backbone = {E, G, H}
+router BA = {E, G, H}
+router interni backbone = G
+router interni area 1 = {A, B, C,D, F}
+router interni area 2 = 
+router ASBR = G
+
+b.
+------ F-A ------
+LSA Router
+A-B, 1
+A-D, 2
+A-F, 4
+B-A, 1
+B-C, 2
+B-E, 3
+C-NET2, 0
+C-B, 2
+C-D, 1
+D-A, 2
+D-C, 1
+D-E, 1
+E-B,3
+E-D, 4
+E-F, 6
+F-NET1, 0
+F-A, 4
+F-E, 6
+LSA Network
+-
+LSA Network Summary
+E-NET3, 2
+LSA AS-External
+G-0/0, 1
+LSA AS-BR
+E-G, 1
+
+------ G-H ------
+LSA Router
+E-G, 1
+G-E, 1
+G-H, 1
+H-G, 1
+LSA Network
+-
+LSA Network Summary
+H-NET3, 0
+E-NET1, 6
+E-NET2, 5
+LSA AS-Ext
+G-0/0, 1
+LSA AS-BR
+-
+
+------------- ESERCIZIO 2 ---------------
+a. 
+A->{BROADCAST}
+RETE2, 1
+B->{BROADCAST}
+RETE1, 1
+C->{BROADCAST}
+RETE3, 1
+
+RT(A)
+RETE1, 8, B
+RETE2, 1, -
+RETE3, 4, C
+
+RT(B)
+RETE1, 1, -
+RETE2, 8, A
+RETE3, 3, C
+
+RB(C)
+RETE1, 3, B
+RETE2, 4, A
+RETE3, 1, -
+
+b.
+All'istante t=25s sono avvenuti gia 3 scambi, quindi essendo il cammino piu lungo a distanza di 3 hop ed essend che RIP ha una velocita' di propagazione delle rotte pari ad 1hop/iterazione, il sistema si puo' considerare a regime.
+RT(A)
+RETE1, 6, C
+RETE2, 1, -
+RETE3, 4, C
+
+RT(B)
+RETE1, 1, -
+RETE2, 6, C
+RETE3, 3, C
+
+RT(C)
+RETE1, 3, B
+RETE2, 4, A
+RETE3, 1, -
